@@ -1,0 +1,9 @@
+
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo "Starting website deployment"
+      - aws s3 sync . s3://deployment-pwa-mk27 --exclude ".git/*" --exclude "buildspec.yml" --exclude "README.md"
+      - echo "Website deployment completed"
